@@ -95,13 +95,13 @@ pipeline {
     }
   }
 
-  post {
-    failure {
-      slackSend(
-        channel: "#jenkins_test",
-        color: "danger",
-        message: "[Failed] Job:${env.JOB_NAME}, Build num:#${env.BUILD_NUMBER} @channel (<${env.RUN_DISPLAY_URL}|open job detail>)"
-      )
-    }
-  }
+//  post {
+//    failure {
+//      slackSend(
+//        channel: "#jenkins_test",
+//        color: "danger",
+//        message: "[Failed] Job:${env.JOB_NAME}, Build num:#${env.BUILD_NUMBER} @channel (<${env.RUN_DISPLAY_URL}|open job detail>)"
+//      )
+//    }
+//  }
 }
