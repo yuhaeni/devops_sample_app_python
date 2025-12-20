@@ -73,7 +73,7 @@ pipeline {
             echo "${env.APPROAL_NUM}"
         }
     }
-    stage('=========== Deploy workload ===========') {
+    stage('============ Deploy workload ============') {
         when { expression { return params.DEPLOY_WORKLOAD } }
         steps {
             sshagent (credentials: ['aws_ec2_user_ssh']) {
