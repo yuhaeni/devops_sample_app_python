@@ -10,7 +10,7 @@ pipeline {
 
     // CI
     string(name : 'AWS_ACCOUNT_ID', defaultValue : '504429674470', description : 'AWS_ACCOUNT_ID')
-    string(name : 'DOCKER_IMAGE_NAME', defaultValue : 'demon', description : 'DOCKER_IMAGE_NAME')
+    string(name : 'DOCKER_IMAGE_NAME', defaultValue : 'demo', description : 'DOCKER_IMAGE_NAME')
     string(name : 'DOCKER_TAG', defaultValue : '1.0.0', description : 'DOCKER_TAG')
 
     // CD
