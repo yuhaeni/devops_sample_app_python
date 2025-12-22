@@ -100,13 +100,13 @@ pipeline {
 
   post {
    success {
-        channel: "#jenkins_test",
+        channel: "jenkins_test",
         color: "good",
  	message: "[Successful] Job:${env.JOB_NAME}, Build num:#${env.BUILD_NUMBER} @channel (<${env.RUN_DISPLAY_URL}|open job detail>)"
    } 
    failure {
       slackSend(
-        channel: "#jenkins_test",
+        channel: "jenkins_test",
         color: "danger",
         message: "[Failed] Job:${env.JOB_NAME}, Build num:#${env.BUILD_NUMBER} @channel (<${env.RUN_DISPLAY_URL}|open job detail>)"
       )
