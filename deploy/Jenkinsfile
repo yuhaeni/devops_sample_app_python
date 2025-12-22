@@ -62,7 +62,7 @@ pipeline {
   
 
     stage('Prompt for deploy') {
-      //  when { expression { return params.PROMPT_FOR_DEPLOY } }
+       when { expression { return params.PROMPT_FOR_DEPLOY } }
       //  agent { label 'deploy' }
         steps {
             script {
@@ -98,13 +98,18 @@ pipeline {
     }
   }
 
-//  post {
-//    failure {
-//      slackSend(
-//        channel: "#jenkins_test",
-//        color: "danger",
-//        message: "[Failed] Job:${env.JOB_NAME}, Build num:#${env.BUILD_NUMBER} @channel (<${env.RUN_DISPLAY_URL}|open job detail>)"
-//      )
-//    }
-//  }
+  post {
+   success {
+        channel: "#jenkins_test",
+        color: "good",
+ 	message: "[Successful] Job:${env.JOB_NAME}, Build num:#${env.BUILD_NUMBER} @channel (<${env.RUN_DISPLAY_URL}|open job detail>)"
+   } 
+   failure {
+      slackSend(
+        channel: "#jenkins_test",
+        color: "danger",
+        message: "[Failed] Job:${env.JOB_NAME}, Build num:#${env.BUILD_NUMBER} @channel (<${env.RUN_DISPLAY_URL}|open job detail>)"
+      )
+    }
+  }
 }
