@@ -60,8 +60,10 @@ pipeline {
         }
     }
     stage('Prompt for deploy') {
-	input 'Deploy this?'
-        //when { expression { return params.PROMPT_FOR_DEPLOY } }
+        steps {
+		input 'Deploy this?'
+	}
+	//when { expression { return params.PROMPT_FOR_DEPLOY } }
         // agent { label 'deploy' }
         //steps {
         //    script {
