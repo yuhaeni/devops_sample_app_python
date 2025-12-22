@@ -72,7 +72,7 @@ pipeline {
          //   }
 
            // echo "${env.APPROAL_NUM}"
-        }
+       // }
     }
     stage('=========== Deploy workload ===========') {
         when { expression { return params.DEPLOY_WORKLOAD } }
